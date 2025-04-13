@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortner</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortner</h1>
+        <form action="/shorten" method="POST">
+            {% csrf_token %}
+            <input type="text" name="url" placeholder="Paste URL to shorten" required>
+            <button class="btn" type="submit">Shorten</button>
+        </form>
+            {% if short_url %}
+                <h2>Shortened URL: </h2>
+                <div class="short_url-container">
+                    <button class="copy-icon" onclick="copyCode()" aria-label="Copy">
+                        <!-- Copy Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z" />
+                        </svg>
+                    </button>
+                    <pre><code id="code">localhost:8000/{{ short_url }}</code></pre>
+                </div>
+
+            {% endif %}
+            {% if error %}
+                <h2 style="color: red;">{{ error }}</h2>
+            {% endif %}
+    </div>
+
+    <script>
+        function copyCode() {
+            const codeText = document.getElementById("code").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                alert("Copied!");
+            });
+        }
+    </script>
+</body>
+</html>

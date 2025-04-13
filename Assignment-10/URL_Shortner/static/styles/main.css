@@ -1,0 +1,90 @@
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 300px;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+input{
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #00b1cd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #007b93;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.short_url-container {
+    position: relative;
+    background-color: #2d2d3a;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.short_url-container pre {
+    margin: 0;
+    overflow-x: auto;
+}
+
+.short_url-container code {
+    color: #cdd9e5;
+    font-size: 1rem;
+}
+
+.copy-icon {
+    position: absolute;
+    top: .3rem;
+    width: 3rem;
+    height: 3rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.copy-icon:hover {
+    opacity: 0.8;
+}
+
+.copy-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #ffffff;
+}
